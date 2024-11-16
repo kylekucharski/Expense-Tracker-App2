@@ -1,0 +1,51 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch Main App",
+            "program": "lib/main.dart", // Entry point of your Flutter app
+            "cwd": "${workspaceFolder}/expense_tracker1",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "Main App (Profile Mode)",
+            "program": "lib/main.dart", // Entry point
+            "cwd": "${workspaceFolder}/expense_tracker1",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "Main App (Release Mode)",
+            "program": "lib/main.dart", // Entry point
+            "cwd": "${workspaceFolder}/expense_tracker1",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "Launch Expense Repository",
+            "program": "lib/main.dart", // Modify if there's a specific entry point in the package
+            "cwd": "${workspaceFolder}/expense_tracker1/packages/expense_repository",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "Expense Repository (Profile Mode)",
+            "program": "lib/main.dart", // Modify as needed
+            "cwd": "${workspaceFolder}/expense_tracker1/packages/expense_repository",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "Expense Repository (Release Mode)",
+            "program": "lib/main.dart", // Modify as needed
+            "cwd": "${workspaceFolder}/expense_tracker1/packages/expense_repository",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        }
+    ]
+}
