@@ -117,7 +117,7 @@ class _MainScreenState extends State<MainScreen> {
                             ),
                           ),
                           Text(
-                            "John Doe", // Ideally, you can display the user's name here
+                            "John Doe", // Replace with user name if available
                             style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.bold,
@@ -129,7 +129,7 @@ class _MainScreenState extends State<MainScreen> {
                     ],
                   ),
                   IconButton(
-                    onPressed: () {}, // Settings or other functionality
+                    onPressed: () {}, // Placeholder for settings functionality
                     icon: const Icon(CupertinoIcons.settings),
                   )
                 ],
@@ -174,7 +174,7 @@ class _MainScreenState extends State<MainScreen> {
                         ),
                         const SizedBox(height: 12),
                         Text(
-                          '\$ $balance', // Displaying balance (income - expenses)
+                          '\$ $balance', // Display balance (income - expenses)
                           style: const TextStyle(
                             fontSize: 40,
                             color: Colors.white,
@@ -188,90 +188,18 @@ class _MainScreenState extends State<MainScreen> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               // Income Info
-                              Row(
-                                children: [
-                                  Container(
-                                    width: 25,
-                                    height: 25,
-                                    decoration: const BoxDecoration(
-                                      color: Colors.white30,
-                                      shape: BoxShape.circle,
-                                    ),
-                                    child: const Center(
-                                      child: Icon(
-                                        CupertinoIcons.arrow_down,
-                                        size: 12,
-                                        color: Colors.greenAccent,
-                                      ),
-                                    ),
-                                  ),
-                                  const SizedBox(width: 8),
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      const Text(
-                                        'Income',
-                                        style: TextStyle(
-                                          fontSize: 14,
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.w400,
-                                        ),
-                                      ),
-                                      Text(
-                                        '\$ $_income',
-                                        style: const TextStyle(
-                                          fontSize: 14,
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.w600,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ],
+                              _infoRow(
+                                icon: CupertinoIcons.arrow_down,
+                                color: Colors.greenAccent,
+                                label: "Income",
+                                value: '\$ $_income',
                               ),
                               // Expenses Info
-                              Row(
-                                children: [
-                                  Container(
-                                    width: 25,
-                                    height: 25,
-                                    decoration: const BoxDecoration(
-                                      color: Colors.white30,
-                                      shape: BoxShape.circle,
-                                    ),
-                                    child: const Center(
-                                      child: Icon(
-                                        CupertinoIcons.arrow_down,
-                                        size: 12,
-                                        color: Colors.red,
-                                      ),
-                                    ),
-                                  ),
-                                  const SizedBox(width: 8),
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      const Text(
-                                        'Expenses',
-                                        style: TextStyle(
-                                          fontSize: 14,
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.w400,
-                                        ),
-                                      ),
-                                      Text(
-                                        '\$ $totalExpenses',
-                                        style: const TextStyle(
-                                          fontSize: 14,
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.w600,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ],
+                              _infoRow(
+                                icon: CupertinoIcons.arrow_down,
+                                color: Colors.red,
+                                label: "Expenses",
+                                value: '\$ $totalExpenses',
                               ),
                             ],
                           ),
@@ -309,7 +237,7 @@ class _MainScreenState extends State<MainScreen> {
                     ),
                   ),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {}, // Placeholder for "View All" functionality
                     child: Text(
                       'View All',
                       style: TextStyle(
@@ -334,6 +262,17 @@ class _MainScreenState extends State<MainScreen> {
                         decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(12),
+                          border: Border.all(
+                            color: Colors.grey.shade300,
+                            width: 1.0,
+                          ),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.2),
+                              blurRadius: 4,
+                              offset: const Offset(0, 2),
+                            ),
+                          ],
                         ),
                         child: Padding(
                           padding: const EdgeInsets.all(16.0),
@@ -412,6 +351,53 @@ class _MainScreenState extends State<MainScreen> {
           ),
         ),
       ),
+    );
+  }
+
+  Widget _infoRow({
+    required IconData icon,
+    required Color color,
+    required String label,
+    required String value,
+  }) {
+    return Row(
+      children: [
+        Container(
+          width: 25,
+          height: 25,
+          decoration: BoxDecoration(
+            color: Colors.white30,
+            shape: BoxShape.circle,
+          ),
+          child: Icon(
+            icon,
+            size: 12,
+            color: color,
+          ),
+        ),
+        const SizedBox(width: 8),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              label,
+              style: const TextStyle(
+                fontSize: 14,
+                color: Colors.white,
+                fontWeight: FontWeight.w400,
+              ),
+            ),
+            Text(
+              value,
+              style: const TextStyle(
+                fontSize: 14,
+                color: Colors.white,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ],
+        ),
+      ],
     );
   }
 }

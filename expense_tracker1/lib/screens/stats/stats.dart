@@ -21,8 +21,13 @@ class StatScreen extends StatelessWidget {
         }
 
         final data = snapshot.data!;
-        final Map<String, double> monthlyExpenses = data['expenses'] ?? {};
-        final double income = data['income'] ?? 0.0;
+        final Map<String, double> monthlyExpenses =
+            (data['expenses'] ?? {}).cast<String, double>();
+        final double income = (data['income'] ?? 0.0) as double;
+
+        if (monthlyExpenses.isEmpty || income <= 0) {
+          return const Center(child: Text("No data available to display"));
+        }
 
         return SafeArea(
           child: Padding(
