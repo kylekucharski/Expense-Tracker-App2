@@ -1,13 +1,12 @@
 plugins {
     id "com.android.application"
     id "kotlin-android"
-    // Flutter Gradle Plugin must be applied after Android and Kotlin Gradle plugins.
     id "dev.flutter.flutter-gradle-plugin"
 }
 
 android {
     namespace = "com.example.expense_tracker1"
-    compileSdk = flutter.compileSdkVersion
+    compileSdk = 34 // Updated to ensure compatibility with Firebase
     ndkVersion = flutter.ndkVersion
 
     compileOptions {
@@ -20,18 +19,15 @@ android {
     }
 
     defaultConfig {
-        // Application ID unique to your app.
         applicationId = "com.example.expense_tracker1"
-        minSdk = flutter.minSdkVersion
-        targetSdk = flutter.targetSdkVersion
+        minSdk = 21 // Updated to meet Firebase's minimum requirements
+        targetSdk = 33 // Updated to match the compileSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
     }
 
     buildTypes {
         release {
-            // Add your own signing config for the release build.
-            // Currently using debug signing for simplicity.
             signingConfig = signingConfigs.debug
         }
     }
@@ -43,10 +39,10 @@ flutter {
 
 dependencies {
     implementation platform('com.google.firebase:firebase-bom:31.0.0') // Firebase BOM for version alignment
-    implementation 'com.google.firebase:firebase-analytics' // Firebase Analytics
-    implementation 'com.google.firebase:firebase-auth' // Firebase Authentication
-    implementation 'com.google.firebase:firebase-firestore' // Cloud Firestore
+    implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.google.firebase:firebase-auth'
+    implementation 'com.google.firebase:firebase-firestore'
 }
 
-// Apply Google Services plugin after dependencies block.
+// Apply the Google Services plugin after the dependencies block
 apply plugin: 'com.google.gms.google-services'
