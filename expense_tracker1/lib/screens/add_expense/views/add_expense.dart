@@ -46,9 +46,9 @@ class _AddExpenseState extends State<AddExpense> {
       child: GestureDetector(
         onTap: () => FocusScope.of(context).unfocus(),
         child: Scaffold(
-          backgroundColor: Theme.of(context).colorScheme.surface,
+          backgroundColor: Theme.of(context).colorScheme.background,
           appBar: AppBar(
-            backgroundColor: Theme.of(context).colorScheme.surface,
+            backgroundColor: Theme.of(context).colorScheme.background,
           ),
           body: BlocBuilder<GetCategoriesBloc, GetCategoriesState>(
             builder: (context, state) {

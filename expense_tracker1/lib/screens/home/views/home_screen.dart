@@ -1,15 +1,17 @@
 import 'dart:math';
+
 import 'package:expense_repository/expense_repository.dart';
 import 'package:expense_tracker1/screens/add_expense/blocs/create_category_bloc/create_category_bloc.dart';
-import 'package:expense_tracker1/screens/add_expense/blocs/create_expense_bloc/create_expense_bloc.dart';
 import 'package:expense_tracker1/screens/add_expense/blocs/get_categories_bloc/get_categories_bloc.dart';
 import 'package:expense_tracker1/screens/add_expense/views/add_expense.dart';
 import 'package:expense_tracker1/screens/home/blocs/get_expenses_bloc/get_expenses_bloc.dart';
 import 'package:expense_tracker1/screens/home/views/main_screen.dart';
-import 'package:expense_tracker1/screens/stats/stats.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../add_expense/blocs/create_expense_bloc/create_expense_bloc.dart';
+import '../../stats/stats.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -51,13 +53,13 @@ class _HomeScreenState extends State<HomeScreen> {
                     builder: (BuildContext context) => MultiBlocProvider(
                       providers: [
                         BlocProvider(
-                          create: (context) => CreateCategoryBloc(FirebaseExpenseRepo() as ExpenseRepository),
+                          create: (context) => CreateCategoryBloc(FirebaseExpenseRepo()),
                         ),
                         BlocProvider(
-                          create: (context) => GetCategoriesBloc(FirebaseExpenseRepo() as ExpenseRepository)..add(GetCategories()),
+                          create: (context) => GetCategoriesBloc(FirebaseExpenseRepo())..add(GetCategories()),
                         ),
                         BlocProvider(
-                          create: (context) => CreateExpenseBloc(FirebaseExpenseRepo() as ExpenseRepository),
+                          create: (context) => CreateExpenseBloc(FirebaseExpenseRepo()),
                         ),
                       ],
                       child: const AddExpense(),
@@ -101,7 +103,4 @@ class _HomeScreenState extends State<HomeScreen> {
       }
     );
   }
-}
-
-class FirebaseExpenseRepo {
 }
