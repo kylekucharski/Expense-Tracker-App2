@@ -25,7 +25,7 @@ class _AddExpenseState extends State<AddExpense> {
 
   @override
   void initState() {
-    dateController.text = DateFormat('dd/MM/yyyy').format(DateTime.now());
+    dateController.text = DateFormat('MM/dd/yyyy').format(DateTime.now());
     expense = Expense.empty;
     expense.expenseId = const Uuid().v1();
     super.initState();
@@ -165,7 +165,7 @@ class _AddExpenseState extends State<AddExpense> {
 
                           if (newDate != null) {
                             setState(() {
-                              dateController.text = DateFormat('dd/MM/yyyy').format(newDate);
+                              dateController.text = DateFormat('MM/dd/yyyy').format(newDate);
                               // selectDate = newDate;
                               expense.date = newDate;
                             });

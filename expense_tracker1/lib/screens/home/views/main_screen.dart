@@ -388,7 +388,7 @@ class _MainScreenState extends State<MainScreen> {
                                     ),
                                   ),
                                   Text(
-                                    DateFormat('dd/MM/yyyy').format(
+                                    DateFormat('MM/dd/yyyy').format(
                                         widget.expenses[i].date),
                                     style: TextStyle(
                                       fontSize: 14,
