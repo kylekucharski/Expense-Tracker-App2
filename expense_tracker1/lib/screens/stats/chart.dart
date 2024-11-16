@@ -2,170 +2,130 @@ import 'dart:math';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
-class MyChart extends StatefulWidget {
-  const MyChart({super.key});
+class MyChart extends StatelessWidget {
+  final double income; // Total income for the user
+  final Map<String, double> expenses; // Monthly expenses (key: month, value: amount)
 
-  @override
-  State<MyChart> createState() => _MyChartState();
-}
+  const MyChart({
+    required this.income,
+    required this.expenses,
+    super.key,
+  });
 
-class _MyChartState extends State<MyChart> {
   @override
   Widget build(BuildContext context) {
     return BarChart(
-      mainBarData(),
+      mainBarData(context),
     );
   }
 
-  BarChartGroupData makeGroupData(int x, double y) {
+  BarChartGroupData makeGroupData(
+    BuildContext context,
+    int x,
+    double expense, {
+    required double maxIncome,
+  }) {
     return BarChartGroupData(
       x: x,
       barRods: [
+        // Background bar for income (gray bar)
         BarChartRodData(
-          toY: y,
+          toY: maxIncome,
+          color: Colors.grey.shade300,
+          width: 20,
+        ),
+        // Gradient bar for expense
+        BarChartRodData(
+          toY: expense,
           gradient: LinearGradient(
             colors: [
               Theme.of(context).colorScheme.primary,
               Theme.of(context).colorScheme.secondary,
               Theme.of(context).colorScheme.tertiary,
             ],
-            transform: const GradientRotation(pi / 40),
+            transform: const GradientRotation(pi / 4),
           ),
           width: 20,
-          backDrawRodData: BackgroundBarChartRodData(
-            show: true,
-            toY: 5,
-            color: Colors.grey.shade300
-          )
-        )
-      ]
+        ),
+      ],
     );
   }
 
-  List<BarChartGroupData> showingGroups() => List.generate(8, (i) {
-    switch (i) {
-      case 0:
-        return makeGroupData(0, 2);
-      case 1:
-        return makeGroupData(1, 3);
-      case 2:
-        return makeGroupData(2, 2);
-      case 3:
-        return makeGroupData(3, 4.5);
-      case 4:
-        return makeGroupData(4, 3.8);
-      case 5:
-        return makeGroupData(5, 1.5);
-      case 6:
-        return makeGroupData(6, 4);
-      case 7:
-        return makeGroupData(7, 3.8);
-      default:
-        return throw Error();
-    }
-  });
+  List<BarChartGroupData> showingGroups(BuildContext context) {
+    final sortedExpenses = expenses.entries.toList()
+      ..sort((a, b) => a.key.compareTo(b.key)); // Sort by month
 
-  BarChartData mainBarData() {
+    return List.generate(sortedExpenses.length, (i) {
+      final month = sortedExpenses[i];
+      return makeGroupData(
+        context,
+        i,
+        month.value,
+        maxIncome: income, // Set max income for the gray bar
+      );
+    });
+  }
+
+  BarChartData mainBarData(BuildContext context) {
     return BarChartData(
       titlesData: FlTitlesData(
         show: true,
-        rightTitles: const AxisTitles(
-          sideTitles: SideTitles(showTitles: false)
-        ),
-        topTitles: const AxisTitles(
-          sideTitles: SideTitles(showTitles: false)
-        ),
+        rightTitles: const AxisTitles(sideTitles: SideTitles(showTitles: false)),
+        topTitles: const AxisTitles(sideTitles: SideTitles(showTitles: false)),
         bottomTitles: AxisTitles(
           sideTitles: SideTitles(
             showTitles: true,
             reservedSize: 38,
-            getTitlesWidget: getTiles,
-          )
+            getTitlesWidget: (value, meta) => getBottomTitles(value, meta),
+          ),
         ),
         leftTitles: AxisTitles(
           sideTitles: SideTitles(
             showTitles: true,
             reservedSize: 38,
-            getTitlesWidget: leftTitles,
+            getTitlesWidget: (value, meta) => getLeftTitles(value, meta),
           ),
         ),
       ),
-      borderData: FlBorderData(
-        show: false
-      ),
+      borderData: FlBorderData(show: false),
       gridData: const FlGridData(show: false),
-      barGroups: showingGroups(),
+      barGroups: showingGroups(context),
     );
   }
 
-  Widget getTiles(double value, TitleMeta meta) {
+  Widget getBottomTitles(double value, TitleMeta meta) {
     const style = TextStyle(
       color: Colors.grey,
       fontWeight: FontWeight.bold,
       fontSize: 14,
     );
-    Widget text;
-
-    switch (value.toInt()) {
-      case 0:
-        text = const Text('01', style: style);
-        break;
-      case 1:
-        text = const Text('02', style: style);
-        break;
-      case 2:
-        text = const Text('03', style: style);
-        break;
-      case 3:
-        text = const Text('04', style: style);
-        break;
-      case 4:
-        text = const Text('05', style: style);
-        break;
-      case 5:
-        text = const Text('06', style: style);
-        break;
-      case 6:
-        text = const Text('07', style: style);
-        break;
-      case 7:
-        text = const Text('08', style: style);
-        break;
-      default:
-        text = const Text('', style: style);
-        break;
+    final index = value.toInt();
+    if (index < expenses.keys.length) {
+      return SideTitleWidget(
+        axisSide: meta.axisSide,
+        space: 16,
+        child: Text(
+          expenses.keys.elementAt(index),
+          style: style,
+        ),
+      );
     }
-    return SideTitleWidget(
-      axisSide: meta.axisSide,
-      space: 16,
-      child: text,
-    );
+    return const SizedBox.shrink();
   }
 
-   Widget leftTitles(double value, TitleMeta meta) {
+  Widget getLeftTitles(double value, TitleMeta meta) {
     const style = TextStyle(
       color: Colors.grey,
       fontWeight: FontWeight.bold,
       fontSize: 14,
     );
-    String text;
-    if (value == 0) {
-      text = '1K';
-    } else if (value == 2) {
-      text = '2K';
-    } else if (value == 3) {
-      text = '3K';
-    } else if (value == 4) {
-      text = '4K';
-    } else if (value == 5) {
-      text = '5K';
-    } else {
-      return Container();
+    if (value % 1 == 0) {
+      return SideTitleWidget(
+        axisSide: meta.axisSide,
+        space: 0,
+        child: Text('${value.toInt()}K', style: style),
+      );
     }
-    return SideTitleWidget(
-      axisSide: meta.axisSide,
-      space: 0,
-      child: Text(text, style: style),
-    );
+    return const SizedBox.shrink();
   }
 }
