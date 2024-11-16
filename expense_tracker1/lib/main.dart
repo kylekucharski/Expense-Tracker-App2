@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:expense_tracker1/screens/app.dart';
+import 'package:expense_tracker1/app.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'simple_bloc_observer.dart';

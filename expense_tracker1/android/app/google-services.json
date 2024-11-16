@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "643733353764",
+    "project_id": "express-tracker-d4582",
+    "storage_bucket": "express-tracker-d4582.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:643733353764:android:e2ff870e9da1c7596f2fb1",
+        "android_client_info": {
+          "package_name": "com.example.expense_tracker1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCDPBULXfG9EIZGibXM2XBszbfKGASBw7I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -56,7 +56,7 @@ class MainScreen extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
-                            color: Theme.of(context).colorScheme.onBackground
+                            color: Theme.of(context).colorScheme.onSurface
                           ),
                         )
                       ],
@@ -209,7 +209,7 @@ class MainScreen extends StatelessWidget {
                   'Transactions',
                   style: TextStyle(
                     fontSize: 16,
-                    color: Theme.of(context).colorScheme.onBackground,
+                    color: Theme.of(context).colorScheme.onSurface,
                     fontWeight: FontWeight.bold
                   ),
                 ),
@@ -270,7 +270,7 @@ class MainScreen extends StatelessWidget {
                                   expenses[i].category.name,
                                   style: TextStyle(
                                     fontSize: 14,
-                                    color: Theme.of(context).colorScheme.onBackground,
+                                    color: Theme.of(context).colorScheme.onSurface,
                                     fontWeight: FontWeight.w500
                                   ),
                                 ),
@@ -283,7 +283,7 @@ class MainScreen extends StatelessWidget {
                                   "\$${expenses[i].amount}.00",
                                   style: TextStyle(
                                     fontSize: 14,
-                                    color: Theme.of(context).colorScheme.onBackground,
+                                    color: Theme.of(context).colorScheme.onSurface,
                                     fontWeight: FontWeight.w400
                                   ),
                                 ),
