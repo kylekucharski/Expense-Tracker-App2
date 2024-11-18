@@ -34,7 +34,7 @@ The main dashboard shows the total balance, income, and recent expenses in a vis
 ### Adding Expenses
 Categorize expenses and log them with ease using an intuitive interface.
 
-![Add Expense](expense_tracker1/assets/ExpenseTrackerCreateCategory.png)
+![Add Expense](expense_tracker1/assets/ExpenseTrackerTransactions.png)
 
 ---
 
