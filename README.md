@@ -39,10 +39,6 @@ Users can update their income dynamically, and the balance recalculates in real-
 Categorize expenses and log them with ease using an intuitive interface.
 ![Add Expense](expense_tracker1/assets/ExpenseTrackerCreateCategory.png)
 
-### Transactions Overview
-View detailed transactions categorized by type for better financial insights.
-![Transactions List](expense_tracker1/assets/ExpenseTrackerTransactions.png)
-
 ---
 
 ## Technologies Used
