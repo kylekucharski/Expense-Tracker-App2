@@ -87,7 +87,7 @@ A cross-platform mobile application built using **Flutter** and **Firebase** to 
 ## Contributors
 
 - **Kyle Kucharski**  
-  [GitHub](https://github.com/your-github-username) | [LinkedIn](https://www.linkedin.com/in/your-linkedin-profile)
+  [GitHub](https://github.com/kylekucharski) | [LinkedIn](https://www.linkedin.com/in/kyle-kucharski-32603927a/)
 
 ---
 
