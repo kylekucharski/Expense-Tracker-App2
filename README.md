@@ -25,19 +25,6 @@ A cross-platform mobile application built using **Flutter** and **Firebase** to 
 - Compatible with **iOS** and **Android**, ensuring a consistent experience across devices.
 
 ---
-## Screenshots
-
-### Home Screen
-The main dashboard shows the total balance, income, and recent expenses in a visually appealing format.
-![Home Screen](expense_tracker1/assets/ExpenseTrackerHomeScreen.png)
-
-### Adding Expenses
-Categorize expenses and log them with ease using an intuitive interface.
-
-![Add Expense](expense_tracker1/assets/ExpenseTrackerTransactions.png)
-
----
-
 ## Technologies Used
 
 ### Frontend
@@ -93,6 +80,18 @@ Categorize expenses and log them with ease using an intuitive interface.
 - **Analytics**: Add tools to visualize spending patterns over time.
 - **User Authentication**: Enable personalized accounts for individual users.
 - **Export Options**: Provide functionality to export transaction history.
+
+---
+## Screenshots
+
+### Home Screen
+The main dashboard shows the total balance, income, and recent expenses in a visually appealing format.
+![Home Screen](expense_tracker1/assets/ExpenseTrackerHomeScreen.png)
+
+### Adding Expenses
+Categorize expenses and log them with ease using an intuitive interface.
+
+![Add Expense](expense_tracker1/assets/ExpenseTrackerTransactions.png)
 
 ---
 
