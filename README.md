@@ -31,10 +31,6 @@ A cross-platform mobile application built using **Flutter** and **Firebase** to 
 The main dashboard shows the total balance, income, and recent expenses in a visually appealing format.
 ![Home Screen](expense_tracker1/assets/ExpenseTrackerHomeScreen.png)
 
-### Updating Income
-Users can update their income dynamically, and the balance recalculates in real-time.
-![Update Income](expense_tracker1/assets/ExpenseTrackerUpdateIncome.png)
-
 ### Adding Expenses
 Categorize expenses and log them with ease using an intuitive interface.
 ![Add Expense](expense_tracker1/assets/ExpenseTrackerCreateCategory.png)
