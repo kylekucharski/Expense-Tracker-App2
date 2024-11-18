@@ -51,3 +51,48 @@ A cross-platform mobile application built using **Flutter** and **Firebase** to 
    ```bash
    git clone https://github.com/<your-username>/Expense-Tracker-Application.git
    ```
+2. Install the Dependencies:
+   ```bash
+   flutter pub get
+   ```
+3. Run the Application:
+   ```bash
+   flutter run
+   ```
+
+# Key Functionalities
+
+### Dashboard Overview
+- Snapshot of total balance, income, and recent expenses.
+- Features a gradient balance card for an enhanced user experience.
+
+### Expense Logging
+- Add expenses via a floating action button.
+- Categorize expenses for clarity and better financial management.
+
+### Dynamic Updates
+- Automatically updates the UI when data changes.
+- Recalculates the balance in real-time after logging expenses or updating income.
+
+---
+
+## Future Improvements
+
+- **Analytics**: Add tools to visualize spending patterns over time.
+- **User Authentication**: Enable personalized accounts for individual users.
+- **Export Options**: Provide functionality to export transaction history.
+
+---
+
+## Contributors
+
+- **Kyle Kucharski**  
+  [GitHub](https://github.com/your-github-username) | [LinkedIn](https://www.linkedin.com/in/your-linkedin-profile)
+
+---
+
+## License
+
+This project is licensed under the **MIT License**. See the [LICENSE](./LICENSE) file for details.
+
+   
