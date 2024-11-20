@@ -48,7 +48,7 @@ A cross-platform mobile application built using **Flutter** and **Firebase** to 
 ### Steps to Run
 1. Clone the Repository:
    ```bash
-   git clone https://github.com/<your-username>/Expense-Tracker-Application.git
+   git clone https://github.com/kylekucharski/Expense-Tracker-Application.git
    ```
 2. Install the Dependencies:
    ```bash
